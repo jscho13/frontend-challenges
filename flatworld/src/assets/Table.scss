@@ -1,0 +1,18 @@
+@import 'normalize/variables';
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+
+  th {
+    border-bottom: 1px solid #000000;
+    padding: $default-table-padding;
+  }
+
+  td {
+    border-bottom: 1px solid #dddddd;
+    padding: $default-table-padding;
+  }
+}
