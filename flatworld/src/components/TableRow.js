@@ -1,23 +1,22 @@
 import React from 'react';
+import '../assets/TableRow.scss';
 
-// NOTE: We can make this a function component so it doesn't need to handle state
+// NOTE: Chose a function component here since it doesn't need state
 function TableRow(props) {
 
-  // This is imperative style code, less popular in some camps
+  // Imperative style
   // Favors altering our existing objects (props and esg) and reusing it
-  let esg = props.columns["ESG Score"]
+  let esg = props.columns["ESG Score"] || 0;
   delete props.columns["ESG Score"]
   esg = esg.toFixed(2);
 
-  // This is functional style code, albeit a crude example
+  // Functional style
   // Favors immutability and creates a new object (columns) instead just altering values
   const values = Object.values(props.columns);
   const columns = values.map((val) => <td>{val}</td>);
 
   const boxWidth = {
-    backgroundColor: '#a3c6f6',
-    width: `${esg}%`,
-    height: '10px'
+    width: `${esg}%`
   }
 
   return (
@@ -25,7 +24,7 @@ function TableRow(props) {
       {columns}
       <td>
         {esg}
-        <div style={boxWidth}></div>
+        <div className='EsgRow' style={boxWidth}></div>
       </td>
     </tr>
   )
